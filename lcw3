@@ -1,0 +1,44 @@
+------*****************.html
+
+<template>
+    <lightning-card title="LWC 3" icon-name="custom:custom14">
+        <div class="slds-m-around_medium">
+            <lightning-input label="Name" onchange={changeHandler}></lightning-input>
+            <br/>
+            <p>Hello, {greeting}!</p>
+        </div>
+        <div class="slds-m-around_medium">
+            <lightning-button variant="destructive" title="Destructive" label="Click" onclick={buttonHandler}></lightning-button>
+        </div>
+    </lightning-card>
+</template>
+
+---------*************.js
+import { LightningElement } from 'lwc';
+
+export default class Lwc3 extends LightningElement {
+    greeting ="Mike";
+
+    changeHandler(event){
+        this.greeting = event.target.value;
+
+    }
+
+    buttonHandler(){
+        alert("Button Clicked!");
+
+    }
+}
+
+------***************meta
+
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed>
+        <targets>
+           <target>lightning__AppPage</target>
+           <target>lightning__HomePage</target>
+           <target>lightning__RecordPage</target>
+        </targets>
+</LightningComponentBundle>
