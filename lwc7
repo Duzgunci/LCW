@@ -1,0 +1,49 @@
+---------------------html
+<template>
+    <lightning-card title="LWC 7" icon-name="custom:custom14">
+        <ul class="slds-m-around_medium">
+            <template for:each={contacts} for:item="contact">
+                <li key={contact.Id}>
+                    {contact.Id}, {contact.Name}, {contact.Title}
+                </li>
+            </template>
+        </ul>
+    </lightning-card>
+</template>
+
+-----------------------js
+
+import { LightningElement } from 'lwc';
+
+export default class Lwc7 extends LightningElement {
+    contacts = [
+        {
+           Id: 1,
+           Name: "Amy Taylor", 
+           Title: "VP of Engineering"
+        },
+        {
+            Id: 2,
+            Name: "Micheal Jones", 
+            Title: "VP of Sales"
+         },
+         {
+            Id: 3,
+            Name: "Jennifer Wu", 
+            Title: "CEO"
+         }
+    ]
+}
+
+---------------------meta
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__RecordPage</target>
+    </targets>
+</LightningComponentBundle>
+
