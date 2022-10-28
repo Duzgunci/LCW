@@ -1,0 +1,31 @@
+------------------------html
+
+<template>
+    <lightning-card title="LWC 6">
+        <div class="slds-m-around_medium">
+        
+        <lightning-input type="checkbox" label="Show Details" onchange={handleChange}></lightning-input>
+            <template if:true={areDetailsVisible}>
+                <p> These are the details!</p>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>
+
+---------------------js
+
+
+import { LightningElement } from 'lwc';
+
+export default class Lwc6 extends LightningElement {
+    areDetailsVisible = false;
+
+    handleChange(event){
+        this.areDetailsVisible= event.target.checked;
+
+
+    }
+
+
+}
