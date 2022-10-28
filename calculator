@@ -1,0 +1,72 @@
+--------------------html
+<template>
+    <lightning-card title="LWC 5 Calculator" icon-name="standard:constant">
+       
+            <lightning-input class="slds-m-around_medium" type="number" name="firstNumber" onchange={handleChange1} label="First Number" 
+            placeholder="Type here..."></lightning-input>
+            
+            <lightning-input class="slds-m-around_medium"type="number" name="secondNumber" onchange={handleChange2} label="Second Number" 
+            placeholder="Type here..."></lightning-input>
+       
+            <lightning-button class="slds-m-around_medium" label="Add" icon-position="right" icon-name="utility:add" 
+            onclick={addition}></lightning-button>
+            
+            <lightning-button class="slds-m-around_medium" label="Subtract" icon- position="right" icon-name="utility:dash"
+            onclick={subtraction}></lightning-button>
+           
+            <lightning-button class="slds-m-around_medium" label="Multiply" icon- position="right" icon-name="utility:close"
+            onclick={multiplication}></lightning-button>
+            
+            <lightning-button class="slds-m-around_medium" label="Divide" icon- position="right" icon-name="utility:magicwand"
+            onclick={division}></lightning-button>
+      
+        <div class="slds-m-around_medium">
+            {result}
+        </div>
+    </lightning-card>
+</template>
+
+------------------------------js
+
+import { LightningElement } from 'lwc';
+
+export default class Calculator extends LightningElement {
+    firstNumber;
+    secondNumber;
+    result;
+    
+
+    handleChange1(event){
+        this.firstNumber = event.target.value;
+    }
+    handleChange2(event){
+        this.secondNumber = event.target.value;
+    }
+    addition(){
+        this.result = (parseInt(this.firstNumber)) + (parseInt(this.secondNumber));
+    }
+    subtraction(){
+        this.result = this.firstNumber - this.secondNumber;
+    }
+    multiplication(){
+        this.result = this.firstNumber * this.secondNumber;
+    }
+    division(){
+
+        this.result = this.firstNumber / this.secondNumber;
+
+    }
+
+}
+
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed>
+        <targets>
+            <target>lightning__AppPage</target>
+            <target>lightning__HomePage</target>
+            <target>lightning__RecordPage</target>
+        </targets>  
+</LightningComponentBundle>
+
