@@ -21,6 +21,7 @@
 </template>
 
 -----------js
+////@api brings the data from URL
 
 import { LightningElement, api } from 'lwc';
 
