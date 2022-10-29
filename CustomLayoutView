@@ -1,0 +1,41 @@
+--------html
+
+<template>
+    <lightning-card title="LWC 10 (Custom View Layout)">
+        <lightning-record-view-form record-id={recordId} object-api-name={objectApiName}>
+            <div class="slds-grid slds-m-around_medium">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-output-field field-name="Name"></lightning-output-field>
+                    <lightning-output-field field-name="Phone"></lightning-output-field>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-output-field field-name="Industry"></lightning-output-field>
+                    <lightning-output-field field-name="AnnualRevenue"></lightning-output-field>
+                </div>
+            </div>
+        </lightning-record-view-form>
+    </lightning-card>
+</template>
+
+
+-----------js
+
+import { LightningElement, api } from 'lwc';
+
+export default class Lwc10 extends LightningElement {
+    @api recordId;
+    @api objectApiName;
+    
+
+}
+
+--------------meta
+
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed>
+        <targets>
+            <target>lightning__RecordPage</target>
+        </targets>
+</LightningComponentBundle>
