@@ -11,13 +11,13 @@
         <lightning-button class="slds-m-around_medium" label="Add" icon-position="right" icon-name="utility:add"
     onclick={addition}></lightning-button>
     
-        <lightning-button class="slds-m-around_medium" label="Subtract" iconposition="right" icon-name="utility:dash"
+        <lightning-button class="slds-m-around_medium" label="Subtract" icon-position="right" icon-name="utility:dash"
     onclick={subtraction}></lightning-button>
 
-        <lightning-button class="slds-m-around_medium" label="Multiply" iconposition="right" icon-name="utility:close"
+        <lightning-button class="slds-m-around_medium" label="Multiply" icon-position="right" icon-name="utility:close"
     onclick={multiplication}></lightning-button>
 
-        <lightning-button class="slds-m-around_medium" label="Divide" iconposition="right" icon-name="utility:magicwand" onclick={division}> </lightning-button>
+        <lightning-button class="slds-m-around_medium" label="Divide" icon-position="right" icon-name="utility:magicwand" onclick={division}> </lightning-button>
     
     <div class="slds-box slds-m-around_medium">
         {result}
