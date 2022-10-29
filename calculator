@@ -1,28 +1,28 @@
 --------------------html
 <template>
-    <lightning-card title="LWC 5 Calculator" icon-name="standard:constant">
-       
-            <lightning-input class="slds-m-around_medium" type="number" name="firstNumber" onchange={handleChange1} label="First Number" 
-            placeholder="Type here..."></lightning-input>
-            
-            <lightning-input class="slds-m-around_medium"type="number" name="secondNumber" onchange={handleChange2} label="Second Number" 
-            placeholder="Type here..."></lightning-input>
-       
-            <lightning-button class="slds-m-around_medium" label="Add" icon-position="right" icon-name="utility:add" 
-            onclick={addition}></lightning-button>
-            
-            <lightning-button class="slds-m-around_medium" label="Subtract" icon- position="right" icon-name="utility:dash"
-            onclick={subtraction}></lightning-button>
-           
-            <lightning-button class="slds-m-around_medium" label="Multiply" icon- position="right" icon-name="utility:close"
-            onclick={multiplication}></lightning-button>
-            
-            <lightning-button class="slds-m-around_medium" label="Divide" icon- position="right" icon-name="utility:magicwand"
-            onclick={division}></lightning-button>
-      
-        <div class="slds-m-around_medium">
-            {result}
-        </div>
+    <lightning-card title="LWC Calculator" icon-name="standard:constant">
+   
+        <lightning-input class="slds-m-around_medium" type="number" label="First Number" name="firstNumber"
+    placeholder="Type here..." onchange={handleChange1}></lightning-input>
+    
+        <lightning-input class="slds-m-around_medium" type="number" label="Second Number" name="secondNumber"
+    placeholder="Type here..." onchange={handleChange2}></lightning-input>
+    
+        <lightning-button class="slds-m-around_medium" label="Add" icon-position="right" icon-name="utility:add"
+    onclick={addition}></lightning-button>
+    
+        <lightning-button class="slds-m-around_medium" label="Subtract" iconposition="right" icon-name="utility:dash"
+    onclick={subtraction}></lightning-button>
+
+        <lightning-button class="slds-m-around_medium" label="Multiply" iconposition="right" icon-name="utility:close"
+    onclick={multiplication}></lightning-button>
+
+        <lightning-button class="slds-m-around_medium" label="Divide" iconposition="right" icon-name="utility:magicwand" onclick={division}> </lightning-button>
+    
+    <div class="slds-box slds-m-around_medium">
+        {result}
+    </div>
+    
     </lightning-card>
 </template>
 
