@@ -1,0 +1,84 @@
+-------APEX CLASS
+public with sharing class AccountListControllerLwc {
+    @AuraEnabled(cacheable=true)
+public static List<Account> queryAccountsByEmployeeNumber(Integer numberOfEmployees) {
+    return [
+        SELECT Name
+        FROM Account
+        WHERE NumberOfEmployees >= :numberOfEmployees
+    ];
+}
+@AuraEnabled(cacheable=true)   
+public static List<Account> queryAccountsByRevenue(Decimal annualRevenue){
+      
+        return [SELECT Name
+        FROM Account
+        WHERE AnnualRevenue >=:annualRevenue];
+
+
+    }
+
+}
+
+---------HTML
+<template>
+    <lightning-card>
+        <lightning-input type="number" 
+        label="Annual Revenue"
+         value={annualRevenue} 
+         formatter="currency" 
+         onchange={handleChange}></lightning-input>
+         
+         <lightning-button
+          label="reset"
+          onclick={reset}>
+
+      </lightning-button> 
+      <template if:true={accounts.data}>
+        <template for:each={accounts.data} for:item="account">
+             <p key={account.Id}>{account.Name}</p>
+        </template>
+    </template> 
+    </lightning-card>
+</template>
+
+
+---------JS
+import { LightningElement,wire } from 'lwc';
+import queryAccountsByRevenue  from '@salesforce/apex/AccountListControllerLwc.queryAccountsByRevenue';
+
+export default class AccountFinder extends LightningElement {
+
+    annualRevenue = null;
+
+    handleChange(event){
+       this.annualRevenue = event.detail.value;
+    }
+
+    reset(){
+        this.annualRevenue= null;
+    }
+
+    @wire(queryAccountsByRevenue ,{annualRevenue : '$annualRevenue'})
+    accounts;
+}
+
+
+
+-----META
+
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed>
+        <targets>
+            <target>lightning__AppPage</target>
+           <target>lightning__HomePage</target>
+           <target>lightning__RecordPage</target>
+        </targets>
+</LightningComponentBundle>
+
+
+
+
+
