@@ -1,0 +1,43 @@
+-------html
+
+
+<template>
+    <lightning-card>
+        <lightning-input type="number" label="Annual Revenue"
+         value={annualRevenue} formatter="currency" onchange={handleChange}></lightning-input>
+         
+         <lightning-button
+          label="reset"
+          onclick={reset}>
+
+      </lightning-button> 
+    </lightning-card>
+</template>
+
+-------js
+
+import { LightningElement } from 'lwc';
+
+export default class AccountFinder extends LightningElement {
+
+    annualRevenue = null;
+    handleChange(event) {
+        this.annualRevenue = event.detail.value;
+    }
+    reset() {
+        this.annualRevenue = null;
+    }
+
+}
+
+-----------meta
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed>
+        <targets>
+            <target>lightning__AppPage</target>
+           <target>lightning__HomePage</target>
+           <target>lightning__RecordPage</target>
+        </targets>
+</LightningComponentBundle>
