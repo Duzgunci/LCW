@@ -1,0 +1,35 @@
+-------html
+
+<template>
+    <lightning-card title="LWC 9 (Standard Layout)">
+        <div class="slds-m-around_medium">
+    <lightning-record-form record-id ={recordId} object-api-name={objectApiName} 
+    fields ={fields} ></lightning-record-form>
+    
+</div>
+</lightning-card>
+      
+</template>
+
+--------js
+
+
+import { LightningElement,api } from 'lwc';
+
+export default class Lwc9 extends LightningElement {
+
+    @api recordId;
+    @api objectApiName;
+    fields = ["AccountId", "Name", "Title", "Phone", "Email"];
+}
+
+----------meta
+
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__RecordPage</target>
+    </targets>
+</LightningComponentBundle>
